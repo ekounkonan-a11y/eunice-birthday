@@ -24,7 +24,7 @@ const Letter = ({ char, index }: { char: string, index: number }) => {
 export const Loader = () => {
   const [loading, setLoading] = useState(true);
   const text = "HAPPY BIRTHDAY EUNICE";
-  const letters = Array.from(text);
+  const words = text.split(" ");
 
   useEffect(() => {
     // Launch fireworks - heavy sequence
@@ -75,20 +75,29 @@ export const Loader = () => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.05, filter: "blur(20px)" }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] bg-[#0A0A0A] flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-[#0b0a12] flex flex-col items-center justify-center overflow-hidden"
         >
           {/* Subtle noise and gradient background */}
           <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none" />
           
           <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-            <div className="flex flex-wrap justify-center gap-x-[0.2em] mb-12">
-              {letters.map((char, i) => (
-                <div key={i} className="py-2">
-                   <span className="font-['Montserrat_Alternates'] text-4xl md:text-7xl font-black tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                    <Letter char={char} index={i} />
-                  </span>
-                </div>
-              ))}
+            <div className="flex flex-wrap justify-center gap-x-[0.8em] mb-12">
+              {words.map((word, wordIndex) => {
+                const letters = Array.from(word);
+                const baseIndex = words
+                  .slice(0, wordIndex)
+                  .reduce((sum, w) => sum + w.length, 0) + wordIndex;
+
+                return (
+                  <div key={wordIndex} className="py-2">
+                    <span className="font-['Montserrat_Alternates'] text-4xl md:text-7xl font-black tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] inline-flex">
+                      {letters.map((char, i) => (
+                        <Letter key={`${wordIndex}-${i}`} char={char} index={baseIndex + i} />
+                      ))}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
 
             <motion.div
@@ -116,6 +125,7 @@ export const Loader = () => {
           
           {/* Ambient Glows */}
           <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#120c1f]/40 via-transparent to-[#0a1a1f]/30" />
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 blur-[100px] rounded-full" />
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 blur-[100px] rounded-full" />
           </div>

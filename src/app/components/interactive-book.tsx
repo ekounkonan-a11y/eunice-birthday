@@ -125,7 +125,7 @@ export const InteractiveBook = () => {
                     </motion.div>
                     <div className="space-y-6 md:space-y-8">
                       <h2 className="font-['Montserrat_Alternates'] text-2xl md:text-4xl font-bold text-gray-900 leading-tight">
-                        <TypewriterText text="Joyeux anniversaire Eunice" />
+                        <TypewriterText text="Joyeux anniversaire a toi ma petite Eunice" />
                       </h2>
                       <div className="font-['Poppins'] text-gray-600 leading-relaxed text-base md:text-xl italic">
                         <TypewriterText

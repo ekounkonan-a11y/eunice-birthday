@@ -1,11 +1,20 @@
 
-  # Site web anniversaire Eunice
+  # Site Web Anniversaire Eunice 🎉
 
-  This is a code bundle for Site web anniversaire Eunice. The original project is available at https://www.figma.com/design/qRwO7ZrwZcpTKQ8r2jIPp2/Site-web-anniversaire-Eunice.
+Ce projet est un site web pour célébrer l'anniversaire d’Eunice.  
+La maquette originale est disponible sur 
+---
 
-  ## Running the code
+## Technologies utilisées
 
-  Run `npm i` to install the dependencies.
+- React 18
+- yet-another-react-lightbox (remplace `react-image-lightbox` pour compatibilité React 18)
+- Autres dépendances listées dans `package.json`
 
-  Run `npm run dev` to start the development server.
-  
+---
+
+## Installation
+
+1. Cloner le dépôt :
+```bash
+git clone https://github.com/ekounkonan-a11y/eunice-birthday.git

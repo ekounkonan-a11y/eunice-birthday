@@ -9,13 +9,13 @@ export const CreditButton = () => {
     { 
       name: 'Site Web', 
       icon: <ExternalLink size={18} />, 
-      url: 'https://ekounforge.com',
+      url: 'https://ekoun-forge.vercel.app/',
       color: 'hover:text-blue-600'
     },
     { 
       name: 'WhatsApp', 
       icon: <MessageCircle size={18} />, 
-      url: 'https://wa.me/2250707070707', // Placeholder
+      url: 'https://wa.me/2250787648092', // Placeholder
       color: 'hover:text-green-600'
     },
     { 

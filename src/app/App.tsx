@@ -34,7 +34,7 @@ const App = () => {
       {/* Footer */}
       <footer className="relative z-10 py-20 text-center">
         <p className="font-['Poppins'] text-sm text-gray-400">
-            Fait avec amour pour EUNICE — 2026
+            Fait par l'equipe Ekoun FORGE  — 11 fevrier 2026
         </p>
       </footer>
     </div>

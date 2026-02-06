@@ -1,8 +1,10 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import { Maximize2, X } from 'lucide-react';
+import { Maximize2 } from 'lucide-react';
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const galleryImages = import.meta.glob('/src/assets/gallery/*.{png,jpg,jpeg,webp,avif,svg}', {
   eager: true,
@@ -14,7 +16,11 @@ const PHOTOS = Object.entries(galleryImages)
   .map(([, src]) => src as string);
 
 export const PhotoGallery = () => {
-  const [selectedImg, setSelectedImg] = useState<string | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
+
+  // Préparer les slides pour yet-another-react-lightbox
+  const slides = PHOTOS.map((src) => ({ src }));
 
   return (
     <section className="py-20 px-4 md:px-10 bg-white">
@@ -39,7 +45,10 @@ export const PhotoGallery = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   className="group relative overflow-hidden rounded-3xl cursor-pointer"
-                  onClick={() => setSelectedImg(src)}
+                  onClick={() => {
+                    setPhotoIndex(i);
+                    setLightboxOpen(true);
+                  }}
                 >
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 z-10 flex items-center justify-center">
                       <motion.div
@@ -62,42 +71,27 @@ export const PhotoGallery = () => {
         )}
       </div>
 
-      {/* Lightbox Implementation */}
-      <AnimatePresence>
-        {selectedImg && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[10000] bg-black/95 flex items-center justify-center p-4 md:p-10"
-            onClick={() => setSelectedImg(null)}
-          >
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              whileTap={{ scale: 0.9 }}
-              className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors z-50"
-              onClick={() => setSelectedImg(null)}
-            >
-              <X size={40} />
-            </motion.button>
-
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <ImageWithFallback 
-                src={selectedImg} 
-                alt="Enlarged view" 
-                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl shadow-white/5"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* yet-another-react-lightbox Implementation */}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={photoIndex}
+        slides={slides}
+        styles={{
+          container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
+        }}
+        carousel={{
+          finite: false,
+          preload: 2,
+        }}
+        animation={{
+          fade: 300,
+          swipe: 300,
+        }}
+        controller={{
+          closeOnBackdropClick: true,
+        }}
+      />
     </section>
   );
 };
