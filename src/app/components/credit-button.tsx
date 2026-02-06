@@ -34,7 +34,8 @@ export const CreditButton = () => {
             initial={{ opacity: 0, scale: 0.8, x: -20, y: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, x: -20, y: 20 }}
-            className="absolute bottom-16 left-0 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-4 min-w-[180px] border border-white/20"
+            className="notranslate absolute bottom-16 left-0 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-4 min-w-[180px] border border-white/20"
+            translate="no"
           >
             <div className="flex flex-col gap-2">
               {links.map((link) => (
@@ -58,7 +59,8 @@ export const CreditButton = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-5 py-3 bg-white/80 backdrop-blur-md border border-white shadow-lg rounded-full group transition-all"
+        className="notranslate flex items-center gap-2 px-5 py-3 bg-white/80 backdrop-blur-md border border-white shadow-lg rounded-full group transition-all"
+        translate="no"
       >
         <span className="font-['Montserrat_Alternates'] text-xs font-bold tracking-tighter text-gray-800">
           By <span className="text-[var(--color-rose-poudre)]">Ekoun Forge</span>

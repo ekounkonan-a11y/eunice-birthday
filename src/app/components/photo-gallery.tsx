@@ -26,7 +26,12 @@ export const PhotoGallery = () => {
     <section className="py-20 px-4 md:px-10 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 text-center">
-            <h3 className="font-['Montserrat_Alternates'] text-3xl md:text-4xl font-bold text-gray-900 mb-4">Galerie Souvenirs</h3>
+            <h3
+              className="notranslate font-['Montserrat_Alternates'] text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              translate="no"
+            >
+              Galerie Souvenirs
+            </h3>
             <p className="font-['Poppins'] text-gray-500">Quelques éclats de rire et de beauté capturés dans le temps.</p>
         </div>
 

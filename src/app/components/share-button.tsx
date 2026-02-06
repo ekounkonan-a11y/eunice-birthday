@@ -44,7 +44,8 @@ export const ShareButton = () => {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="absolute bottom-20 right-0 bg-white rounded-3xl shadow-2xl p-4 min-w-[200px] border border-gray-100"
+            className="notranslate absolute bottom-20 right-0 bg-white rounded-3xl shadow-2xl p-4 min-w-[200px] border border-gray-100"
+            translate="no"
           >
             <p className="font-['Montserrat_Alternates'] font-bold text-gray-900 text-sm mb-4 px-2">Partager la magie</p>
             <div className="space-y-2">

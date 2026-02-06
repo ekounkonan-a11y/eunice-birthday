@@ -21,9 +21,10 @@ const TypewriterText = ({ text, delay = 0, className = "" }: { text: string; del
   
   return (
     <motion.div
-      className={clsx("flex flex-wrap justify-center", className)}
+      className={clsx("notranslate flex flex-wrap justify-center", className)}
       initial="hidden"
       animate="visible"
+      translate="no"
       variants={{
         hidden: { opacity: 0 },
         visible: {
@@ -124,10 +125,16 @@ export const InteractiveBook = () => {
                       {"\u2709\uFE0F"}
                     </motion.div>
                     <div className="space-y-6 md:space-y-8">
-                      <h2 className="font-['Montserrat_Alternates'] text-2xl md:text-4xl font-bold text-gray-900 leading-tight">
+                      <h2
+                        className="notranslate font-['Montserrat_Alternates'] text-2xl md:text-4xl font-bold text-gray-900 leading-tight"
+                        translate="no"
+                      >
                         <TypewriterText text="Joyeux anniversaire a toi ma petite Eunice" />
                       </h2>
-                      <div className="font-['Poppins'] text-gray-600 leading-relaxed text-base md:text-xl italic">
+                      <div
+                        className="notranslate font-['Poppins'] text-gray-600 leading-relaxed text-base md:text-xl italic"
+                        translate="no"
+                      >
                         <TypewriterText
                           delay={1.5}
                           text="Aujourd’hui est un jour particulier, car il célèbre une personne unique : toi. Que cette nouvelle année de ta vie t’apporte la paix, une santé durable et de nombreux moments de bonheur, loin du stress inutile. Profite pleinement de cette journée, souris sans raison et savoure chaque instant. Reste telle que tu es, authentique et précieuse."
@@ -167,7 +174,8 @@ export const InteractiveBook = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.8 }}
-                    className="font-['Poppins'] text-center text-lg md:text-2xl font-semibold text-[var(--color-rose-poudre)] italic px-2 z-10 drop-shadow-sm"
+                    className="notranslate font-['Poppins'] text-center text-lg md:text-2xl font-semibold text-[var(--color-rose-poudre)] italic px-2 z-10 drop-shadow-sm"
+                    translate="no"
                   >
                     {"\"Continue d'avancer à ton rythme, le meilleur est encore devant toi\""}
                   </motion.p>
@@ -205,7 +213,10 @@ export const InteractiveBook = () => {
                     transition={{ delay: 0.6, duration: 0.8 }}
                     className="text-center space-y-6 z-10"
                   >
-                    <p className="font-['Poppins'] text-lg md:text-2xl font-semibold text-gray-800 italic px-2">
+                    <p
+                      className="notranslate font-['Poppins'] text-lg md:text-2xl font-semibold text-gray-800 italic px-2"
+                      translate="no"
+                    >
                       {"\"Merci d\u2019\u00eatre toi. \u00c0 tr\u00e8s bient\u00f4t pour encore plus de sourires\""}
                     </p>
                     <div className="flex justify-center items-center gap-4 text-[var(--color-rose-poudre)]">
@@ -219,7 +230,12 @@ export const InteractiveBook = () => {
 
               {/* Realistic Page Number and Navigation Info */}
               <div className="w-full flex justify-between items-center text-[var(--color-nude)] opacity-50 mt-10 border-t border-gray-100 pt-6 z-10">
-                <span className="text-xs font-mono tracking-widest uppercase font-bold text-gray-400">Page {currentPage + 1} of 3</span>
+                <span
+                  className="notranslate text-xs font-mono tracking-widest uppercase font-bold text-gray-400"
+                  translate="no"
+                >
+                  Page {currentPage + 1} of 3
+                </span>
                 <div className="flex gap-4">
                   <Sparkles size={16} />
                   <Heart size={16} fill="currentColor" />
@@ -287,7 +303,8 @@ export const InteractiveBook = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.7, 0], x: [20, -20, 20] }}
           transition={{ duration: 2.5, repeat: Infinity }}
-          className="absolute -top-14 left-1/2 -translate-x-1/2 text-gray-400 text-xs md:hidden pointer-events-none flex items-center gap-3 font-medium uppercase tracking-widest"
+          className="notranslate absolute -top-14 left-1/2 -translate-x-1/2 text-gray-400 text-xs md:hidden pointer-events-none flex items-center gap-3 font-medium uppercase tracking-widest"
+          translate="no"
         >
           <ChevronLeft size={14} /> Swipe to flip <ChevronRight size={14} />
         </motion.div>

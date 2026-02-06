@@ -14,7 +14,8 @@ const Letter = ({ char, index }: { char: string, index: number }) => {
         stiffness: 100, 
         damping: 10 
       }}
-      className="inline-block"
+      className="notranslate inline-block"
+      translate="no"
     >
       {char === " " ? "\u00A0" : char}
     </motion.span>
@@ -90,7 +91,10 @@ export const Loader = () => {
 
                 return (
                   <div key={wordIndex} className="py-2">
-                    <span className="font-['Montserrat_Alternates'] text-4xl md:text-7xl font-black tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] inline-flex">
+                    <span
+                      className="notranslate font-['Montserrat_Alternates'] text-4xl md:text-7xl font-black tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] inline-flex"
+                      translate="no"
+                    >
                       {letters.map((char, i) => (
                         <Letter key={`${wordIndex}-${i}`} char={char} index={baseIndex + i} />
                       ))}
@@ -116,7 +120,8 @@ export const Loader = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 0.6, y: 0 }}
                 transition={{ delay: 3 }}
-                className="font-['Poppins'] text-xs text-gray-400 mt-6 uppercase tracking-[0.4em] font-light"
+                className="notranslate font-['Poppins'] text-xs text-gray-400 mt-6 uppercase tracking-[0.4em] font-light"
+                translate="no"
               >
                 Préparez-vous à l'élégance
               </motion.p>

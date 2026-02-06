@@ -25,7 +25,7 @@ export const AudioPlayer = () => {
       <audio
         ref={audioRef}
         loop
-        src="/src/assets/audio/Happy birthday.mpeg" // Add your audio file here
+        src="/audio/Happy birthday.mpeg" // Add your audio file here
       />
       <motion.button
         initial={{ opacity: 0, scale: 0.8 }}

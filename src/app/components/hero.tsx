@@ -26,8 +26,9 @@ export const Hero = () => {
         className="w-full md:w-1/2 order-1 md:order-1 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0"
       >
         <h1 
-          className="font-['Montserrat_Alternates'] text-5xl md:text-7xl font-bold text-gray-900 leading-tight mb-4 flex flex-col md:block" 
+          className="notranslate font-['Montserrat_Alternates'] text-5xl md:text-7xl font-bold text-gray-900 leading-tight mb-4 flex flex-col md:block" 
           style={{ fontFamily: "'Montserrat Alternates', sans-serif" }}
+          translate="no"
         >
           {titleWords.map((word, i) => (
             <motion.span
@@ -55,7 +56,9 @@ export const Hero = () => {
                   ease: "easeInOut"
                 }
               }}
+              translate="no"
               className={clsx(
+                "notranslate",
                 "inline-block",
                 i === 1 && "text-[var(--color-rose-poudre)]"
               )}
@@ -70,7 +73,8 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="hidden md:block font-['Poppins'] text-lg md:text-xl text-gray-500 mb-8 max-w-md"
+          className="notranslate hidden md:block font-['Poppins'] text-lg md:text-xl text-gray-500 mb-8 max-w-md"
+          translate="no"
         >
           {"11 f\u00e9vrier \u2014 une journ\u00e9e sp\u00e9ciale pour une personne exceptionnelle."}
         </motion.p>
@@ -84,8 +88,9 @@ export const Hero = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-[var(--color-rose-poudre)] text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all"
+            className="notranslate px-8 py-3 bg-[var(--color-rose-poudre)] text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all"
             onClick={() => document.getElementById('book-section')?.scrollIntoView({ behavior: 'smooth' })}
+            translate="no"
           >
             Ouvrir mon cadeau
           </motion.button>
@@ -132,7 +137,8 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="font-['Poppins'] text-lg text-gray-500 mb-8 px-4"
+          className="notranslate font-['Poppins'] text-lg text-gray-500 mb-8 px-4"
+          translate="no"
         >
           {"11 f\u00e9vrier \u2014 une journ\u00e9e sp\u00e9ciale pour une personne exceptionnelle."}
         </motion.p>
@@ -140,8 +146,9 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
-          className="px-8 py-3 bg-[var(--color-rose-poudre)] text-white rounded-full font-medium shadow-lg"
+          className="notranslate px-8 py-3 bg-[var(--color-rose-poudre)] text-white rounded-full font-medium shadow-lg"
           onClick={() => document.getElementById('book-section')?.scrollIntoView({ behavior: 'smooth' })}
+          translate="no"
         >
           Ouvrir mon cadeau
         </motion.button>
